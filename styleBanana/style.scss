@@ -1,14 +1,45 @@
-.cover {
-  height: 10rem;
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
 }
-#bookshaft {
-  width: 30rem;
+.cover {
+  height: 20rem;
+}
+#bookshelf {
+  height: 120rem;
+  width: 80rem;
+
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  background-image: url('img/wood.jpg');
 }
 .cardBook {
-    height: 12rem;
-    width: 8rem;
-    padding: 2rem;
+  height: 28rem;
+  width: 18rem;
+  margin: 4rem;
+  text-align: center;
+ border: (1px solid black);
+ padding: 2rem;
+ -webkit-box-shadow: -1px 27px 38px 5px rgba(0,0,0,0.75);
+-moz-box-shadow: -1px 27px 38px 5px rgba(0,0,0,0.75);
+box-shadow: -1px 27px 38px 5px rgba(0,0,0,0.75);
 }
-h3{
- 
+h3 {
+  margin-top: 2rem;
+  color: white;
 }
+.divcover {
+  text-align: center;
+  width: 14rem;
+  margin: auto;
+  
+}
+main {
+  padding-top: 10rem;
+  display: flex;
+}
+#search{width:10rem; }
+.row{display:flex;
+flex-direction: column;}
