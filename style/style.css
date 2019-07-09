@@ -1,0 +1,40 @@
+* {
+  box-sizing: border-box;
+  transition-duration: 0.3s;
+}
+*:not(input) {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 3rem;
+  background-color: lightblue;
+}
+
+.formLogin {
+  width: 24rem;
+  padding: 2rem;
+  margin: 5rem auto;
+  background-color: lightblue;
+  border-radius: 1rem;
+}
+.formLogin input,
+.formLogin textarea {
+  display: block;
+  width: 20rem;
+}
+.formLogin [type='submit'] {
+  margin-top: 1rem;
+}
+.bodyLogin {
+  height: 100vh;
+  display: flex;
+}
+.error {
+  color: red;
+}
