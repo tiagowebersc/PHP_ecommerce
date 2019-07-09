@@ -10,7 +10,7 @@
 
 #bookshelf {
   height: 120rem;
-  width: 80rem;
+  width: 80%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -21,9 +21,9 @@
 }
 
 .cardBook {
-  height: 28rem;
+  height: 34rem;
   width: 18rem;
-  margin: 4rem;
+  margin: 6rem;
   text-align: center;
   border: 1px solid black;
   padding: 2rem;
@@ -50,7 +50,7 @@ main {
 }
 
 #search {
-  width: 10rem;
+  width: 18%;
 }
 
 .row {
@@ -61,5 +61,13 @@ main {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+
+.form-control.search-slt {
+  margin-top: 2rem;
+}
+
+.btn.btn-danger.wrn-btn {
+  margin-top: 4rem;
 }
 /*# sourceMappingURL=style.css.map */

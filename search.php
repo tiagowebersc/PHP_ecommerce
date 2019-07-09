@@ -43,38 +43,43 @@
 
         </section>
         <section id='search'>
-            <section class="search-sec">
-                <div class="container">
-                    <form action="#" method="post" novalidate="novalidate">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="row">
-                                    <div class="col-lg-12 col-md-12 col-sm-12 p-0">
-                                        <input type="text" class="form-control search-slt" placeholder="Enter Pickup City">
-                                    </div>
-                                    <div class="col-lg-12 col-md-12 col-sm-12 p-0">
-                                        <input type="text" class="form-control search-slt" placeholder="Enter Drop City">
-                                    </div>
-                                    <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                                        <select class="form-control search-slt" id="exampleFormControlSelect1">
-                                            <option>Select Vehicle</option>
-                                            <option>Example one</option>
-                                            <option>Example one</option>
-                                            <option>Example one</option>
-                                            <option>Example one</option>
-                                            <option>Example one</option>
-                                            <option>Example one</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                                        <button type="button" class="btn btn-danger wrn-btn">Search</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </section>
+
+
+            <form action="#" method="post" novalidate="novalidate">
+                <div class="row">
+                    <div id='hsearch'>
+                        <h4>
+                            Serarch your book!
+                        </h4>
+                    </div>
+
+                    <input type="text" class="form-control search-slt" placeholder="Author">
+
+
+                   
+
+                    <select class="form-control search-slt" id="exampleFormControlSelect1">
+                        <option>Select category</option>
+                        <option>Adventure</option>
+                        <option>Manuals</option>
+                        <option>Drama</option>
+                        <option>Fantasy</option>
+                    
+                    </select>
+
+                    <select class="form-control search-slt" id="exampleFormControlSelect1">
+                        <option>Select Vehicle</option>
+                        <option>Large</option>
+                        <option>Poket</option>
+                    </select>
+
+
+                    <button type="button" class="btn btn-danger wrn-btn">Search</button>
+
+
+            </form>
+            </div>
+
     </main>
 </body>
 

@@ -8,23 +8,23 @@
 }
 #bookshelf {
   height: 120rem;
-  width: 80rem;
+  width: 80%;
 
   display: flex;
   flex-wrap: wrap;
   margin: auto;
-  background-image: url('img/wood.jpg');
+  background-image: url("img/wood.jpg");
 }
 .cardBook {
-  height: 28rem;
+  height: 34rem;
   width: 18rem;
-  margin: 4rem;
+  margin: 6rem;
   text-align: center;
- border: (1px solid black);
- padding: 2rem;
- -webkit-box-shadow: -1px 27px 38px 5px rgba(0,0,0,0.75);
--moz-box-shadow: -1px 27px 38px 5px rgba(0,0,0,0.75);
-box-shadow: -1px 27px 38px 5px rgba(0,0,0,0.75);
+  border: (1px solid black);
+  padding: 2rem;
+  -webkit-box-shadow: -1px 27px 38px 5px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: -1px 27px 38px 5px rgba(0, 0, 0, 0.75);
+  box-shadow: -1px 27px 38px 5px rgba(0, 0, 0, 0.75);
 }
 h3 {
   margin-top: 2rem;
@@ -34,12 +34,25 @@ h3 {
   text-align: center;
   width: 14rem;
   margin: auto;
-  
 }
 main {
   padding-top: 10rem;
   display: flex;
 }
-#search{width:10rem; }
-.row{display:flex;
-flex-direction: column;}
+#search {
+  width: 18%;
+  
+}
+.row {
+  display: flex;
+  flex-direction: column;
+}
+.form-control.search-slt{
+margin-top: 2rem;
+}
+.btn.btn-danger.wrn-btn{
+  margin-top: 4rem;
+}
+#hsearch{
+  
+}
