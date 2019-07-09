@@ -21,7 +21,7 @@ USE `bookstore` ;
 -- Table `bookstore`.`Author`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `bookstore`.`Author` (
-  `idAuthor` INT(10) NOT NULL,
+  `idAuthor` INT(10) NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(100) NOT NULL,
   `yearOfBirth` INT(4) NOT NULL,
   `gender` CHAR(1) NOT NULL,
@@ -34,7 +34,7 @@ ENGINE = InnoDB;
 -- Table `bookstore`.`Category`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `bookstore`.`Category` (
-  `idCategory` INT(10) NOT NULL,
+  `idCategory` INT(10) NOT NULL AUTO_INCREMENT,
   `description` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idCategory`))
 ENGINE = InnoDB;
@@ -44,7 +44,7 @@ ENGINE = InnoDB;
 -- Table `bookstore`.`Format`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `bookstore`.`Format` (
-  `idFormat` INT(10) NOT NULL,
+  `idFormat` INT(10) NOT NULL AUTO_INCREMENT,
   `description` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idFormat`))
 ENGINE = InnoDB;
@@ -54,7 +54,7 @@ ENGINE = InnoDB;
 -- Table `bookstore`.`Product`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `bookstore`.`Product` (
-  `idProduct` INT(10) NOT NULL,
+  `idProduct` INT(10) NOT NULL AUTO_INCREMENT,
   `title` VARCHAR(45) NOT NULL,
   `cover` VARCHAR(150) NOT NULL,
   `releaseDate` DATE NOT NULL,
@@ -89,7 +89,7 @@ ENGINE = InnoDB;
 -- Table `bookstore`.`User`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `bookstore`.`User` (
-  `idUser` INT(10) NOT NULL,
+  `idUser` INT(10) NOT NULL AUTO_INCREMENT,
   `lastName` VARCHAR(50) NOT NULL,
   `firstName` VARCHAR(50) NOT NULL,
   `address` VARCHAR(150) NOT NULL,
@@ -104,7 +104,7 @@ ENGINE = InnoDB;
 -- Table `bookstore`.`PaymentMethod`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `bookstore`.`PaymentMethod` (
-  `idPaymentMethod` INT(10) NOT NULL,
+  `idPaymentMethod` INT(10) NOT NULL AUTO_INCREMENT,
   `description` VARCHAR(45) NOT NULL,
   `icon` VARCHAR(150) NULL,
   PRIMARY KEY (`idPaymentMethod`))
@@ -115,7 +115,7 @@ ENGINE = InnoDB;
 -- Table `bookstore`.`Order`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `bookstore`.`Order` (
-  `idOrder` INT(10) NOT NULL,
+  `idOrder` INT(10) NOT NULL AUTO_INCREMENT,
   `User_idUser` INT(10) NOT NULL,
   `paymentMethod_idpaymentMethod` INT NOT NULL,
   `date` DATETIME NOT NULL,
