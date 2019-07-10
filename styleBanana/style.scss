@@ -60,14 +60,6 @@ main {
   width: 6rem;
   margin: 2rem auto; 
   
-    form { 
-      
-      div#navin{
-        
-       
-      }
-    }
-  
 }
 [name="gotopage"] {
   width: 1.3rem;
@@ -78,4 +70,13 @@ main {
   padding: 0.8rem;
   line-height: 0rem;
   
+}
+#modify{
+  padding:1rem;
+  margin-left: 1rem;
+  background-color: red;
+}
+#actionbuttons{
+  display:flex;
+
 }

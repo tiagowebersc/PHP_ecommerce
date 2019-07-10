@@ -21,10 +21,7 @@
     <?php
 
     include_once('header.php');
-    $isAdmin = 0;
-    if (isset($_SESSION['administrator'])) {
-        $isAdmin = $_SESSION['administrator'];
-    }
+    
     ?>
     <main>
         <div id='shelfnav'>
@@ -83,6 +80,7 @@
                     if ($bookNum == 0) {
                         echo '<h4>No book found! <br> try different combinations! </h3>';
                     }
+                    mysqli_close($connection);
                 }
                 ?>
 

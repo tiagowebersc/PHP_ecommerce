@@ -12,6 +12,13 @@
 
 <body>
     <?php require_once 'header.php';
+    $isAdmin = 0;
+    if (isset($_POST['modify'])){
+        header('Location: modifyinfo.php');
+    }
+    if (isset($_SESSION['administrator'])) {
+        $isAdmin = $_SESSION['administrator'];
+    }
     $error = "";
     if (isset($_GET['id'])) {
         $id = $_GET['id'];
@@ -70,9 +77,17 @@
                         <?php
                         if (isset($_SESSION['id'])) {
                             ?>
+
                             <form action="" method="post">
-                                <input class='button' type="submit" value="Add to the cart" name='addCartSubmit'>
+                                <div id='actionbuttons'>
+                                    <input class='button' type="submit" value="Add to the cart" name='addCartSubmit'>
+                                    <?php
+                                    if ($isAdmin == 1) {?>
+                                        <button name='modify' id='modify' > Modify informations </button>
+                                    <?php }?>
+                                    </div>
                             </form>
+
 
                         </section>
                     </div>
