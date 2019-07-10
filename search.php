@@ -19,7 +19,12 @@
 <body>
 
     <?php
+
     include_once('header.php');
+    $isAdmin = 0;
+    if (isset($_SESSION['administrator'])) {
+        $isAdmin = $_SESSION['administrator'];
+    }
     ?>
     <main>
         <div id='shelfnav'>
@@ -47,9 +52,9 @@
                         $category[$i] = $db_record['description'];
                         $i++;
                     }
-                    $query = "SELECT title, cover FROM Product limit $page,6";
+                    $query = "SELECT title, cover, idProduct FROM Product limit $page,6";
                     if (isset($_GET['input']) && ($_GET['format'] > 0 || $_GET['cat'] > 0 || $_GET['author'] != '')) {
-                        $query = "SELECT p.title , p.cover FROM Product p INNER JOIN Author a ON p.Author_idAuthor = a.idAuthor";
+                        $query = "SELECT p.title , p.cover, p.idProduct FROM Product p INNER JOIN Author a ON p.Author_idAuthor = a.idAuthor";
                         if (isset($_GET['format']) && $_GET['format'] > 0) {
                             $query = $query . " AND p.Format_idFormat =" . $_GET['format'];
                         }
@@ -70,7 +75,8 @@
                     while ($db_record = mysqli_fetch_assoc($resoult)) {
                         echo '<article class="cardBook">';
                         echo  '<div class="divcover"><img class="cover" src=' . $db_record['cover'] . '></div>';
-                        echo '<h3 class="">' . $db_record['title'] . '</h3>';
+                        // echo '<h3 class="">' . $db_record['title'] . '</h3>';
+                        echo '<a href="book.php?id=' . $db_record['idProduct'] . '"><h3 class="">' . $db_record['title'] . '</h3></a>';
                         echo '</article>';
                         $bookNum++;
                     }
