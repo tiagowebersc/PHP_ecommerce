@@ -10,11 +10,21 @@ session_start();
 
     <div>
         <?php
-        if (isset($_SESSION['email'])) {
+        if (isset($_SESSION['id'])) {
             $name = $_SESSION['name'];
-        } else { }
+            ?>
+            <div class='cart'>
+                <span>Wellcome <?php echo $name; ?></span>
+                <img src="images/shopping-cart.png" alt="Cart">
+                <span><?php echo 2; ?></span>
+            </div>
+        <?php
+        } else {
+            ?>
+            <a href="registration.php">Registration</a>
+            <a href="login.php">Login</a>
+        <?php
+        }
         ?>
-        <input type="button" value="Test3">
-        <input type="button" value="Test4">
     </div>
 </header>
