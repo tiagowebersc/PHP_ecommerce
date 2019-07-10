@@ -50,7 +50,12 @@
                         $results = mysqli_query($conn, $query);
                         while ($row = mysqli_fetch_assoc($results)) {
                             $query = "INSERT INTO OrderItem (Order_idOrder, Product_idProduct, qtde, price) VALUES (" . $orderNr . "," . $row['idProduct'] . ", " . $row['qtde'] . "," . $row['price'] . ");";
+                            $results2 = mysqli_query($conn, $query);
+                        }
+                        if ($results2) {
+                            $query = "DELETE FROM `Cart` WHERE User_idUser = " . $_SESSION['id'] . ";";
                             $results = mysqli_query($conn, $query);
+                            header("Location: index.php");
                         }
                     }
                 }
