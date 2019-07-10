@@ -7,7 +7,6 @@
   padding: 0;
   margin: 0;
 }
-
 header {
   display: flex;
   justify-content: space-between;
@@ -15,7 +14,14 @@ header {
   height: 3rem;
   background-color: lightblue;
 }
-
+a {
+  text-decoration: none;
+  color: black;
+  background-color: darkgray;
+  padding: 0.5rem;
+  border-radius: 0.2rem;
+  margin: 0.2rem;
+}
 .formLogin {
   width: 24rem;
   padding: 2rem;
@@ -45,4 +51,18 @@ header {
 }
 .cart span {
   padding: 0.3rem;
+}
+.bestSeller {
+  width: 100%;
+  background-image: url('../images/wood.jpg');
+}
+.books {
+  display: flex;
+  width: 100%;
+}
+.title {
+  display: block;
+  font-size: 4rem;
+  text-align: center;
+  color: white;
 }

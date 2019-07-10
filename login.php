@@ -32,7 +32,6 @@
                 $error = 'Problem to connect to the database!!';
             } else {
                 $query = "SELECT * FROM User WHERE email = '" . $email . "';";
-                var_dump($query);
                 $results = mysqli_query($conn, $query);
                 if ($row = mysqli_fetch_assoc($results)) {
                     $hashedPass = $row['hashPassword'];

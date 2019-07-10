@@ -4,8 +4,9 @@ session_start();
 ?>
 <header>
     <div>
-        <input type="button" value="Test1">
-        <input type="button" value="Test2">
+        <a href="index.php">Home</a>
+        <a href="userDetail.php">User Info</a>
+        <a href="contact.php">Contact Us</a>
     </div>
 
     <div>
