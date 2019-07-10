@@ -14,7 +14,8 @@ header {
   height: 3rem;
   background-color: lightblue;
 }
-header .a {
+header .a,
+.half .a {
   text-decoration: none;
   color: black;
   background-color: darkgray;
@@ -39,7 +40,10 @@ li {
 .center {
   width: 50%;
   padding: 2rem;
-  margin: 5rem auto;
+  margin: 0rem auto;
+}
+.half {
+  width: 50%;
 }
 .formLogin input,
 .formLogin textarea {
