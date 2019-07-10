@@ -33,21 +33,30 @@
                 $db_name = DB_NAME;
                 $db_found = mysqli_select_db($connection, $db_name);
                 $page = 0;
+                $category = array();
                 if ($db_found) {
 
                     if (isset($_GET['gotopage'])) {
-                        $page = $_GET['gotopage'] * 6;
+                        //$page = ((int)($_GET['gotopage']-1)*6);
+                        $page = (((int) $_GET['gotopage']) - 1) * 6;
                     }
-                    $query = "SELECT title , cover FROM Product limit $page,6";
-
-                    if (isset($_GET['input']) && ($_GET['format'] > 0 || $_GET['category'] > 0 || $_GET['author'] != '')) {
+                    $query = "SELECT description FROM Category ";
+                    $i = 1;
+                    $resoult = mysqli_query($connection, $query);
+                    while ($db_record = mysqli_fetch_assoc($resoult)) {
+                        $category[$i] = $db_record['description'];
+                        $i++;
+                    }
+                    $query = "SELECT title, cover FROM Product limit $page,6";
+                    if (isset($_GET['input']) && ($_GET['format'] > 0 || $_GET['cat'] > 0 || $_GET['author'] != '')) {
                         $query = "SELECT p.title , p.cover FROM Product p INNER JOIN Author a ON p.Author_idAuthor = a.idAuthor";
                         if (isset($_GET['format']) && $_GET['format'] > 0) {
                             $query = $query . " AND p.Format_idFormat =" . $_GET['format'];
                         }
 
-                        if (isset($_GET['category']) && $_GET['category'] > 0) {
-                            $query = $query . " AND p.Category_idCategory =" . $_GET['category'];
+                        if (isset($_GET['cat']) && $_GET['cat'] > 0) {
+                            $query = $query . " AND p.Category_idCategory =" . $_GET['cat'];
+                            echo $_GET['cat'];
                         }
                         if (isset($_GET['author']) && $_GET['author'] != '') {
                             $query = $query . " AND UPPER(a.name) like UPPER ('%" . $_GET['author'] . "%')";
@@ -72,16 +81,7 @@
                 ?>
 
             </section>
-            <div id='pagenav'>
-                <form action="" method='GET'>
-                    <div>
-                        <input type="submit" value='0' name='gotopage' class='goto'>
-                        <input type="submit" value='1' name='gotopage' class='goto'>
-                        <input type="submit" value='2' name='gotopage' class='goto'>
 
-                    </div>
-                </form>
-            </div>
         </div>
         <section id='search'>
 
@@ -97,17 +97,19 @@
                     <input type="text" class="form-control search-slt" placeholder="Author" name='author'>
 
 
-
-
-                    <select class="form-control search-slt" id="exampleFormControlSelect1" name='category'>
+                    <select class="form-control search-slt" id="exampleFormControlSelect1" name='cat'>
                         <option value='0'>Select category</option>
-                        <option value='2'>Adventure</option>
-                        <option value='1'>Manual</option>
-                        <option value='4'>Drama</option>
-                        <option value='7'>Fantasy</option>
-                        <option value='6'>Horror</option>
-                        <option value='3'>Crime and Detective</option>
-                        <option value='5'>Historical Fiction</option>
+                        <?php
+                        $m = 1;
+                        foreach ($category as $cat) {
+                            $opt = "<option value=" . $m . ">" . $cat . "</option>";
+                            //  if(isset($_GET['cat'])&& ($_GET['cat'] == $cat)){
+                            //  $opt= $opt.' selected'; }
+
+                            echo $opt;
+                            $m++;
+                        }
+                        ?>
 
                     </select>
 
@@ -126,7 +128,16 @@
         </section>
 
     </main>
+    <div id='pagenav'>
+        <form action="" method='GET'>
+            <div id='navin'>
+                <input type="submit" value='1' name='gotopage' class='goto'>
+                <input type="submit" value='2' name='gotopage' class='goto'>
+                <input type="submit" value='3' name='gotopage' class='goto'>
 
+            </div>
+        </form>
+    </div>
 </body>
 
 
