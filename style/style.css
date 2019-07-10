@@ -54,7 +54,7 @@ a {
 }
 .bestSeller {
   width: 100%;
-  background-image: url('../images/wood.jpg');
+ /* background-image: url('../images/wood.jpg');*/
 }
 .books {
   display: flex;
