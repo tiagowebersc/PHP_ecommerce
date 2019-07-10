@@ -7,7 +7,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Book store - Cart</title>
     <link rel="stylesheet" href="style/style.css">
-
     <link rel='stylesheet' href='styleBanana/style.css'>
 </head>
 
@@ -15,6 +14,7 @@
     <?php
     require_once 'header.php';
     $error = "";
+    if (!isset($_SESSION['id'])) header("Location: index.php");
     ?>
     <span class='title'>Cart</span>
     <div class='center flex'>
