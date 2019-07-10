@@ -4,9 +4,9 @@ session_start();
 ?>
 <header>
     <div>
-        <a href="index.php">Home</a>
-        <a href="userDetail.php">User Info</a>
-        <a href="contact.php">Contact Us</a>
+        <a class='a' href="index.php">Home</a>
+        <a class='a' href="userDetail.php">User Info</a>
+        <a class='a' href="contact.php">Contact Us</a>
     </div>
 
     <div>
@@ -31,8 +31,8 @@ session_start();
         <?php
         } else {
             ?>
-            <a href="registration.php">Registration</a>
-            <a href="login.php">Login</a>
+            <a class='a' href="registration.php">Registration</a>
+            <a class='a' href="login.php">Login</a>
         <?php
         }
         ?>

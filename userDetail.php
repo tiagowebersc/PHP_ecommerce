@@ -13,6 +13,24 @@
     <?php
     require_once 'header.php';
     ?>
+    <span class='title'>User info</span>
+    <form action="" method="post" class="center">
+        <ul>
+            <li><strong>ID:</strong></li>
+            <li><strong>First name:</strong></li>
+            <li><strong>Last name:</strong></li>
+            <li><strong>Address:</strong></li>
+            <li><strong>Email:</strong></li>
+        </ul>
+        <?php
+        if (isset($_SESSION['id'])) {
+            ?>
+
+            <input class='button' type="submit" value="Logout" name='logoutSubmit'>
+
+        <?php } ?>
+    </form>
+
 </body>
 
 </html>

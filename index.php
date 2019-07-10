@@ -14,7 +14,7 @@
     <?php require_once 'header.php'; ?>
     <div class='bestSeller'>
         <span class='title'>Best Sellers</span>
-        <div class='books'>';
+        <div class='booksBestSellers'>
             <?php
             $conn = mysqli_connect(DB_SERVER, DB_USER, DB_PASSWORD);
             $dbFound = mysqli_select_db($conn, DB_NAME);

@@ -13,6 +13,7 @@
     <?php
     require_once 'header.php';
     ?>
+    <span class='title'>Cart</span>
 </body>
 
 </html>
