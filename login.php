@@ -39,6 +39,7 @@
                         $_SESSION['id'] = $row['idUser'];
                         $_SESSION['name'] = $row['firstName'] . " " . $row['lastName'];
                         $_SESSION['email'] = $row['email'];
+                        $_SESSION['administrator'] = $row['isAdministrator'];
                         mysqli_close($conn);
                         header("Location: index.php");
                     } else {
