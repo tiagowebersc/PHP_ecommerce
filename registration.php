@@ -51,7 +51,6 @@
                 } else {
                     $hashedPass = password_hash($password, PASSWORD_DEFAULT);
                     $query = 'INSERT INTO User(firstName, lastName, address, email, hashPassword, isAdministrator) VALUES ("' . $firstName . '", "' . $lastName . '", "' . $address . '", "' . $email . '", "' . $hashedPass . '", 0)';
-                    var_dump($query);
                     $result = mysqli_query($conn, $query);
 
                     if (!$result)

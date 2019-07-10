@@ -31,18 +31,21 @@
             if (!$dbFound) {
                 $error = 'Problem to connect to the database!!';
             } else {
-                $hashedPass = password_hash($password, PASSWORD_DEFAULT);
-                $query = "SELECT * FROM User WHERE email = '" . $email . "' AND hashPassword = '" . $hashedPass . "';";
-                var_dump($query);
+                $query = "SELECT * FROM User WHERE email = '" . $email . "';";
                 $results = mysqli_query($conn, $query);
                 if ($row = mysqli_fetch_assoc($results)) {
-                    $_SESSION['id'] = $row['idUser'];
-                    $_SESSION['name'] = $row['firstName'] . " " . $row['lastName'];
-                    $_SESSION['email'] = $row['email'];
-                    mysqli_close($conn);
-                    header("Location: index.php");
+                    $hashedPass = $row['hashPassword'];
+                    if (password_verify($_POST['password'], $hashedPass)) {
+                        $_SESSION['id'] = $row['idUser'];
+                        $_SESSION['name'] = $row['firstName'] . " " . $row['lastName'];
+                        $_SESSION['email'] = $row['email'];
+                        mysqli_close($conn);
+                        header("Location: index.php");
+                    } else {
+                        $error = 'Password is wrong!';
+                    }
                 } else {
-                    $error = 'Email not registered/Wrong password!!';
+                    $error = 'Email not registered!';
                 }
             }
             mysqli_close($conn);
