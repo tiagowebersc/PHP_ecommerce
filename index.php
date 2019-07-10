@@ -25,15 +25,15 @@
                 $results = mysqli_query($conn, $query);
                 while ($row = mysqli_fetch_assoc($results)) {
                     echo '<article class="cardBook">';
-                    echo '<div class="divcover"><img class="cover" src=' . $row['cover'] . '></div>';
-                    echo '<h3 class="">' . $row['title'] . '</h3>';
+                    echo '<div class="divcover"><a href="book.php?id=' . $row['idProduct'] . '"><img class="cover" src=' . $row['cover'] . '></a></div>';
+                    echo '<a href="book.php?id=' . $row['idProduct'] . '"><h3 class="">' . $row['title'] . '</h3></a>';
                     echo '</article>';
                 }
             }
             mysqli_close($conn);
             ?>
         </div>
-        <a href="search.php">List of books</a>
+        <a class='listBook' href="search.php">List of books</a>
     </div>
 </body>
 

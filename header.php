@@ -13,11 +13,20 @@ session_start();
         <?php
         if (isset($_SESSION['id'])) {
             $name = $_SESSION['name'];
+            $qtdeCart = 0;
+            $conn = mysqli_connect(DB_SERVER, DB_USER, DB_PASSWORD);
+            $dbFound = mysqli_select_db($conn, DB_NAME);
+            $query = "SELECT ifnull(sum(qtde) ,0) as 'qtde' FROM `Cart` WHERE User_idUser = " . $_SESSION['id'];
+            $resultsCart = mysqli_query($conn, $query);
+            $row = mysqli_fetch_assoc($resultsCart);
+            $qtdeCart += $row['qtde'];
+
+            mysqli_close($conn);
             ?>
             <div class='cart'>
                 <span>Wellcome <?php echo $name; ?></span>
-                <img src="images/shopping-cart.png" alt="Cart">
-                <span><?php echo 2; ?></span>
+                <a href="cart.php"><img src="images/shopping-cart.png" alt="Cart"></a>
+                <span><?php echo $qtdeCart; ?></span>
             </div>
         <?php
         } else {
