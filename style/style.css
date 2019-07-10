@@ -94,3 +94,11 @@ li {
 .button {
   padding: 1rem;
 }
+.mini {
+  height: 8rem;
+  width: 5.5rem;
+  margin-right: 1rem;
+}
+.noMargin {
+  margin: 0;
+}

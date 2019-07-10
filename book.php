@@ -43,6 +43,9 @@
                     $resultsCart = mysqli_query($conn, $query);
                     if (!$resultsCart)
                         $error =  "Problem to add this product to your cart!";
+                    else {
+                        header("Refresh:0");
+                    }
                 }
 
                 ?>

@@ -5,7 +5,11 @@ session_start();
 <header>
     <div>
         <a class='a' href="index.php">Home</a>
-        <a class='a' href="userDetail.php">User Info</a>
+        <?php
+        if (isset($_SESSION['id'])) {
+            echo '<a class=\'a\' href="userDetail.php">User Info</a>';
+        }
+        ?>
         <a class='a' href="contact.php">Contact Us</a>
     </div>
 
