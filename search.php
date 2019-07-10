@@ -10,6 +10,7 @@
     <!-- bootstrap -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <link rel='stylesheet' href='styleBanana/style.css'>
+    <link rel="stylesheet" href="style/style.css">
     <title>Document</title>
 
 
@@ -17,9 +18,9 @@
 
 <body>
 
-<?php
-include_once('header.php');
-?>
+    <?php
+    include_once('header.php');
+    ?>
     <main>
         <div id='shelfnav'>
             <!-- Books container (cover + title)-->
@@ -33,34 +34,30 @@ include_once('header.php');
                 $db_found = mysqli_select_db($connection, $db_name);
                 $page = 0;
                 if ($db_found) {
-                  
+
                     if (isset($_GET['gotopage'])) {
-                     $page = $_GET['gotopage'] * 6;
+                        $page = $_GET['gotopage'] * 6;
                     }
                     $query = "SELECT title , cover FROM Product limit $page,6";
 
-                    if(isset($_GET['input'])&&($_GET['format'] > 0 || $_GET['category']>0 || $_GET['author']!='')){
+                    if (isset($_GET['input']) && ($_GET['format'] > 0 || $_GET['category'] > 0 || $_GET['author'] != '')) {
                         $query = "SELECT p.title , p.cover FROM Product p INNER JOIN Author a ON p.Author_idAuthor = a.idAuthor";
-                        if(isset($_GET['format']) && $_GET['format'] > 0 ){
-                            $query = $query." AND p.Format_idFormat =".$_GET['format'];
-                            
+                        if (isset($_GET['format']) && $_GET['format'] > 0) {
+                            $query = $query . " AND p.Format_idFormat =" . $_GET['format'];
                         }
-                       
-                        if(isset($_GET['category'])&& $_GET['category']>0){
-                            $query = $query." AND p.Category_idCategory =".$_GET['category'];
-                           
+
+                        if (isset($_GET['category']) && $_GET['category'] > 0) {
+                            $query = $query . " AND p.Category_idCategory =" . $_GET['category'];
                         }
-                       if (isset($_GET['author'])&&$_GET['author']!=''){
-                        $query = $query." AND UPPER(a.name) like UPPER ('%" . $_GET['author'] . "%')";
-                        
-                       }
-                       $query= $query." LIMIT $page,6";
-                      
+                        if (isset($_GET['author']) && $_GET['author'] != '') {
+                            $query = $query . " AND UPPER(a.name) like UPPER ('%" . $_GET['author'] . "%')";
+                        }
+                        $query = $query . " LIMIT $page,6";
                     }
 
                     $resoult = mysqli_query($connection, $query);
 
-                    $bookNum=0;
+                    $bookNum = 0;
                     while ($db_record = mysqli_fetch_assoc($resoult)) {
                         echo '<article class="cardBook">';
                         echo  '<div class="divcover"><img class="cover" src=' . $db_record['cover'] . '></div>';
@@ -68,7 +65,7 @@ include_once('header.php');
                         echo '</article>';
                         $bookNum++;
                     }
-                    if($bookNum==0){
+                    if ($bookNum == 0) {
                         echo '<h4>No book found! <br> try different combinations! </h3>';
                     }
                 }
@@ -81,7 +78,7 @@ include_once('header.php');
                         <input type="submit" value='0' name='gotopage' class='goto'>
                         <input type="submit" value='1' name='gotopage' class='goto'>
                         <input type="submit" value='2' name='gotopage' class='goto'>
-                       
+
                     </div>
                 </form>
             </div>
