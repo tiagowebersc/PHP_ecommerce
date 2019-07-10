@@ -19,33 +19,50 @@
 
 
     <main>
+        <div id='shelfnav'>
+            <!-- Books container (cover + title)-->
+            <section id='bookshelf'>
 
-        <!-- Books container (cover + title)-->
-        <section id='bookshelf'>
+                <?php
 
-            <?php
+                include_once('database.php');
+                $connection = mysqli_connect(DB_SERVER, DB_USER, DB_PASSWORD);
+                $db_name = DB_NAME;
+                $db_found = mysqli_select_db($connection, $db_name);
+                if ($db_found) {
+                    $page = 0;
+                    if (isset($_GET['gotopage'])) {
+                        echo $page = $_GET['gotopage'] * 6;
+                    }
+                    $query = "SELECT title , cover FROM Product limit $page,6";
 
-            include_once('database.php');
-            $connection = mysqli_connect(DB_SERVER, DB_USER, DB_PASSWORD);
-            $db_name = DB_NAME;
-            $db_found = mysqli_select_db($connection, $db_name);
-            if ($db_found) {
-                $query = 'SELECT title , cover FROM Product';
-                $resoult = mysqli_query($connection, $query);
-                while ($db_record = mysqli_fetch_assoc($resoult)) {
-                    echo '<article class="cardBook">';
-                    echo  '<div class="divcover"><img class="cover" src=' . $db_record['cover'] . '></div>';
-                    echo '<h3 class="">' . $db_record['title'] . '</h3>';
-                    echo '</article>';
+                    $resoult = mysqli_query($connection, $query);
+
+                    while ($db_record = mysqli_fetch_assoc($resoult)) {
+                        echo '<article class="cardBook">';
+                        echo  '<div class="divcover"><img class="cover" src=' . $db_record['cover'] . '></div>';
+                        echo '<h3 class="">' . $db_record['title'] . '</h3>';
+                        echo '</article>';
+                    }
                 }
-            }
-            ?>
+                ?>
 
-        </section>
+            </section>
+            <div id='pagenav'>
+                <form action="" method='GET'>
+                    <div>
+                        <input type="submit" value='0' name='gotopage' class='goto'>
+                        <input type="submit" value='1' name='gotopage' class='goto'>
+                        <input type="submit" value='2' name='gotopage' class='goto'>
+                       
+                    </div>
+                </form>
+            </div>
+        </div>
         <section id='search'>
 
 
-            <form action="#" method="post" novalidate="novalidate">
+            <form action="" method="GET" novalidate="novalidate">
                 <div class="row">
                     <div id='hsearch'>
                         <h4>
@@ -53,34 +70,39 @@
                         </h4>
                     </div>
 
-                    <input type="text" class="form-control search-slt" placeholder="Author">
+                    <input type="text" class="form-control search-slt" placeholder="Author" name='author'>
 
 
-                   
 
-                    <select class="form-control search-slt" id="exampleFormControlSelect1">
+
+                    <select class="form-control search-slt" id="exampleFormControlSelect1" name='category'>
                         <option>Select category</option>
                         <option>Adventure</option>
-                        <option>Manuals</option>
+                        <option>Manual</option>
                         <option>Drama</option>
                         <option>Fantasy</option>
-                    
+                        <option>Horror</option>
+                        <option>Crime and Detective</option>
+                        <option>Historical Fiction</option>
+
                     </select>
 
-                    <select class="form-control search-slt" id="exampleFormControlSelect1">
-                        <option>Select Vehicle</option>
+                    <select class="form-control search-slt" id="exampleFormControlSelect1" name='format'>
+                        <option>Select Format</option>
                         <option>Large</option>
                         <option>Poket</option>
                     </select>
 
-
-                    <button type="button" class="btn btn-danger wrn-btn">Search</button>
+                    <input type="submit" class="btn btn-danger wrn-btn" value='search!' name='input'>
 
 
             </form>
+
             </div>
+        </section>
 
     </main>
+
 </body>
 
 

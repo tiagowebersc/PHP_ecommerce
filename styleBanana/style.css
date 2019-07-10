@@ -9,7 +9,7 @@
 }
 
 #bookshelf {
-  height: 120rem;
+  background-image: url("img/wood.jpg");
   width: 80%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -17,23 +17,25 @@
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   margin: auto;
-  background-image: url("img/wood.jpg");
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
 }
 
 .cardBook {
   height: 34rem;
   width: 18rem;
-  margin: 6rem;
+  margin: 5rem;
   text-align: center;
   border: 1px solid black;
   padding: 2rem;
   -webkit-box-shadow: -1px 27px 38px 5px rgba(0, 0, 0, 0.75);
   box-shadow: -1px 27px 38px 5px rgba(0, 0, 0, 0.75);
+  background-image: url("img/wood.jpg");
 }
 
 h3 {
   margin-top: 2rem;
-  color: white;
+  color: #ffb700;
 }
 
 .divcover {
@@ -50,7 +52,8 @@ main {
 }
 
 #search {
-  width: 18%;
+  width: 15%;
+  margin: auto;
 }
 
 .row {
@@ -69,5 +72,30 @@ main {
 
 .btn.btn-danger.wrn-btn {
   margin-top: 4rem;
+}
+
+#shelfnav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#shelfnav #pagenav form div {
+  width: 50%;
+  margin: auto;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+[name=gotopage] {
+  width: 1.2rem;
+  height: 1.2rem;
+  background-color: lightblue;
+  color: rgba(53, 21, 12, 0.993);
+  border: 1px solid lightgray;
 }
 /*# sourceMappingURL=style.css.map */
